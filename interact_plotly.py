@@ -156,7 +156,7 @@ if __name__ == "__main__":
                 else:
                     print('[Error] Enter proper graph id')
                     continue
-            elif category_id.isdigit():
+            if category_id.isdigit():
                 if 1 <= int(category_id) <= len(categories):
                     IsFirstStep = 0
                     app_list = query_app(int(category_id)-1)
@@ -172,7 +172,8 @@ if __name__ == "__main__":
                     print('[Error] Enter proper category id')
                     continue
             else:
-                print('[Error] Enter proper category id')
+                if category_id is None:
+                    print('[Error] Enter proper category id')
                 continue
         else:
             app_id = input('Choose the number for detail search or "exit" or "back": ').lower()
